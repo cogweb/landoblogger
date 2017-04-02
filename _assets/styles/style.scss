@@ -1,0 +1,400 @@
+/*!
+ Theme Name:   Lando Blogger Theme
+ Theme URI:    http://bytion.io
+ Description:  Lando Blogger Theme (child theme for Blankslate)
+ Author:       Brian Lewis
+ Author URI:   http://klayzen.com
+ Template:     blankslate
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:
+ Text Domain:  wp-lando-theme
+*/
+
+/* This is the main stylesheet for the Taut project.  There's no need for more styles ... yet */
+
+// Quick Mixins
+/* Center an element */
+@mixin center($position) {
+    position: absolute;
+    @if $position == 'vertical' {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    @else if $position == 'horizontal' {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translate(-50%);
+    }
+    @else if $position == 'both' {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+// Define some variables
+$font: 'Lato', sans-serif;
+
+// Colors
+$landoblue: #808dad;
+$skyorange: #e29b63;
+
+// Trickery
+* {
+		box-sizing: border-box;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+}
+
+// Setup some basic text styles
+body {
+	color: #333;
+	font-family: $font;
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: 0.05em;
+}
+p {
+	line-height: 1.3;
+	margin: 0 0 15px 0;
+}
+a:link, a:visited {
+	color: #111;
+	font-weight: 400;
+	text-decoration: none;
+	&:hover {
+		color: #808dad;
+	}
+}
+input[type="submit"] {
+	background: $skyorange;
+	border: none;
+	color: rgba(0,0,0,0.4);
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1.0rem;
+	opacity: 0.7;
+	padding: 10px 20px;
+	&:hover {
+		color: rgba(255,255,255,0.9);
+		opacity: 1.0;
+	}
+}
+input[type="text"], textarea {
+	background: rgba(0,0,0,0.05);
+	border: none;
+	color: rgba(0,0,0,0.4);
+	font-size: 1.0rem;
+	padding: 10px 15px;
+	&:focus {
+		background: rgba(0,0,0,0.1);
+		outline: none;
+	}
+}
+h1,h2,h3,h4,h5,h6 {
+	font-weight: 700;
+	line-height: 1.2;
+	margin: 0 0 25px 0;
+	a:link, a:visited {
+		font-weight: 900;
+	}
+}
+h1 {
+	font-size: 3.0rem;
+}
+h2 {
+	font-size: 2.5rem;
+}
+h3 {
+	font-size: 2.25rem;
+}
+h4 {
+	font-size: 2.0rem;
+}
+h5 {
+	font-size: 1.5rem;
+}
+h6 {
+	font-size: 1.25rem;
+}
+small {
+	display: block;
+	font-size: 0.5rem;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+// Main
+body {
+}
+
+// Components
+.entry-content {
+	h1,h2,h3,h4,h5,h6 {
+		margin: 0 0 25px 0;
+	}
+	p {
+		margin: 0 0 25px 0;
+	}
+	blockquote {
+		border-left: 30px solid $landoblue;
+		font-size: 2.0rem;
+		font-style: italic;
+		margin: 0 0 25px 0;
+		padding: 20px;
+	}
+	hr {
+		border: 1px dashed #eee;
+		margin: 30px 0
+	}
+	img {
+		margin: 0 0 25px 0;
+	}
+	ol {
+		display: block;
+		font-style: italic;
+		list-style: decimal-leading-zero;
+		margin: 0 0 20px 0;
+		li {
+			margin: 0 0 5px 30px;
+		}
+	}
+	ul {
+		display: block;
+		font-style: italic;
+		list-style: circle;
+		margin: 0 0 20px 0;
+		li {
+			margin: 0 0 5px 30px;
+		}
+	}
+}
+
+// Sections
+#header {
+	background: #333 url('_assets/images/cloudcity.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	color: white;
+	display: none;
+	height: 100vh;
+	position: relative;
+	z-index: 2;
+	#header-overlay {
+		@include center(both);
+		text-align: center;
+		h1 {
+			font-weight: 300;
+			text-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+			text-transform: uppercase;
+		}
+		h5 {
+			margin-top: -30px;
+			text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+		}
+	}
+}
+.home #header {
+	display: block;
+}
+nav#menu {
+	background: $landoblue;
+	box-shadow: 3px 0 25px rgba(0,0,0,0.3);
+	padding: 30px 0;
+	position: fixed;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	ul {
+		list-style: none;
+		li {
+			display: inline-block;
+			margin: 0 20px;
+			a {
+				border-bottom: 3px solid transparent;
+				color: rgba(255,255,255,0.8);
+				font-weight: 700;
+				padding: 0 0 5px 0;
+				text-transform: uppercase;
+				&:hover {
+					border-color: rgba(0,0,0,0.3);
+				}
+			}
+		}
+	}
+}
+section#content {
+	float: left;
+	margin: 50px 40px 0 0;
+	padding: 76px 20px;
+	width: calc(75% - 40px);
+	@media screen and (max-width: 1280px) {
+		width: calc(60% - 40px);
+	}
+	@media screen and (max-width: 900px) {
+		display: block;
+		float: none;
+		padding: 76px 20px 0;
+		margin: 50px 0 40px;
+		width: 100%;
+	}
+}
+aside#sidebar {
+	border-left: 1px dashed #eee;
+	float: left;
+	margin-top: 126px;
+	padding: 20px 20px;
+	width: 25%;
+	@media screen and (max-width: 1280px) {
+		width: 40%;
+	}
+	@media screen and (max-width: 900px) {
+		border-left: none;
+		border-top: 1px dashed #eee;
+		display: block;
+		float: none;
+		margin: 40px 0;
+		width: 100%;
+	}
+	.widget-container {
+		h3 {
+			color: $skyorange;
+			font-size: 1.2rem;
+			text-transform: uppercase;
+		}
+		border-bottom: 1px dashed #eee;
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		ul {
+			li {
+				line-height: 1.3;
+				margin: 0 0 10px 0;
+			}
+		}
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+}
+article.post {
+	border-bottom: 1px dashed #eee;
+	margin: 0 0 50px 0;
+	padding: 0 0 50px 0;
+	header {
+		border-bottom: 1px dashed #eee;
+		margin: 0 0 20px 0;
+		padding: 0 0 20px 0;
+		.post-edit-link {
+			font-size: 0.8rem;
+			float: right;
+		}
+	}
+	p {
+		line-height: 1.3;
+	}
+}
+section#comments {
+	section#comments-list {
+		.comments-title {
+			font-size: 1.2rem;
+			text-transform: uppercase;
+		}
+		ul {
+			li {
+				padding: 20px;
+				&.odd {
+					background: rgba(0,0,0,0.025);
+					border-bottom: 1px dashed rgba(0,0,0,0.1);
+				}
+				&.even {
+					background: rgba(0,0,0,0.05);
+					border-bottom: 1px dashed rgba(0,0,0,0.1);
+				}
+				.comment-body {
+					.vcard {
+						padding: 0 0 20px;
+						img {
+							margin: 0 10px 0 0;
+							vertical-align: middle;
+						}
+						cite {
+							font-size: 1.25rem;
+							position: relative;
+							top: 5px;
+							text-transform: uppercase;
+						}
+						.says {
+							display: none;
+						}
+					}
+					.comment-meta {
+						margin: 0 0 20px 0;
+						.comment-edit-link {
+							font-size: 12px;
+							text-transform: uppercase;
+						}
+					}
+					.reply {
+						margin: 20px 0;
+						a {
+							background: $skyorange;
+							color: rgba(0,0,0,0.4);
+							display: inline-block;
+							opacity: 0.7;
+							padding: 10px 20px;
+							&:hover {
+								color: rgba(255,255,255,0.9);
+								opacity: 1.0;
+							}
+						}
+					}
+				}
+			}
+			.children {
+				margin-top: 20px;
+			}
+		}
+	}
+	#respond {
+		margin: 20px 0;
+		#reply-title {
+			font-size: 1.2rem;
+			text-transform: uppercase;
+		}
+		#commentform {
+			label {
+				display: block;
+				font-size: 0.8rem;
+				font-weight: 700;
+				margin: 0 0 5px 0;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+footer#footer {
+	background: $skyorange;
+	padding: 76px 0;
+	text-align: center;
+	#copyright {
+		color: rgba(255,255,255,0.9);
+		a {
+			color: rgba(0,0,0,0.4);
+			&:hover {
+				color: rgba(255,255,255,0.9);
+			}
+		}
+	}
+}

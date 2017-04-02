@@ -1,0 +1,12 @@
+{
+  "name": "wp-taut-theme",
+  "version": "0.0.1",
+  "description": "Taut is better than Slack!",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-ruby-sass": "^2.1.1"
+  }
+}
